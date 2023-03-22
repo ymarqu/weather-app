@@ -1,8 +1,30 @@
-async function getWeather(){
-    const response = await fetch('https://api.openweathermap.org/data/2.5/weather?lat=32.7174202&lon=-117.1627728&appid=84be7224f83f2b9047883638524cc4d6',
-    {mode: 'cors'});
-    let weatherData = await response.json();
-    console.log(weatherData)
 
-}
-getWeather();
+import weatherDisplay from './weatherpage.js';
+let Coordinates = require('./utilities.js');
+
+const content = document.querySelector('.content');
+let cityQuery = '';
+
+// function createForm(){
+//     return `<form>
+//     <input type="text" name="city" id="city">
+//     <button type="submit">Search</button>
+//     </form>`
+//     };
+
+
+// content.innerHTML = createForm();
+
+// let form = document.querySelector('form');
+
+// form.addEventListener('submit', async(e) => {
+//     e.preventDefault();
+//     let c = city.value;
+//     cityQuery = c.replace(/ /g, '+');
+//     console.log(cityQuery);
+//     let temp = await getWeather(cityQuery);
+//     console.log(temp);
+
+// });
+
+content.appendChild(weatherDisplay());
