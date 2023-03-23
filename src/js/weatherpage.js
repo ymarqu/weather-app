@@ -1,4 +1,4 @@
-// import './css/weatherpage.css'
+
 import '../css/weatherpage.css';
 import getWeather from './weather_data.js';
 import getHourly from './hourly_data.js';
@@ -58,12 +58,11 @@ form.addEventListener('submit', async(e) => {
     console.log(city.value);
     console.log('submit');
     let cityName = city.value;
-    let formattedCity = cityName.replace(/ /g, '+');
+    let formattedCity = cityName.replace(/ /g, '+');s
 
 })
 async function getData(){
 weatherData = await getWeather();
-let hour = await getHourly();
 mainWeatherContainer.innerHTML = leftDisplay(weatherData);
 dailyStats.appendChild(highlightsGrid(weatherData));
 hourlyContainer.appendChild(hourly());

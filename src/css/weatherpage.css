@@ -3,7 +3,8 @@ main{
     padding: 0;
     box-sizing: border-box;
     display: flex;
-    height: 100vh;
+    height: auto;
+    height: 100%;
     width: 100vw;
     font-family: 'Poppins', sans-serif;
 }
@@ -12,28 +13,41 @@ main{
     width: 75%;
     display: flex;
     flex-direction: column;
-
+    height: auto;
 }
+
 .left-container{
     box-sizing: border-box;
     align-items: center;
     text-align: center;
     width: 25%;
-    padding: 2%;
+    padding-top: 2%;
+    height: auto;
 
+}
+.left-data-container{
+    padding: 5%;
+}
+.form{
+    width: 100%;
 }
 input{
     box-sizing: border-box;
-    width: 250px;
+    width: 80%;
     height: 50px;
-    margin-right: 10px;
     border-radius: 10px;
     border: none;
     padding: 0 20px ;
-
+    transition: all 0.2s ease-in-out;
+}
+button{
+  cursor: pointer;
+}
+button:hover{
+ transform: scale(1.1);
 }
 input::placeholder{
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 h1{
     font-size: 6.5rem;
@@ -41,12 +55,23 @@ h1{
 }
 .zone-container{
     display: flex;
+    flex-direction: column;
+    align-items: left;
     justify-content: center;
     border-bottom: 2px solid grey;
+    text-align: left;
+    margin: auto;
+    margin-bottom: 30px;
+    width: 60%;
+}
+.zone-container > p{
+    margin-top: 0;
 }
 p{
-    font-size: 1.5rem;
+    /* margin: 0; */
+    font-size: 1.2rem;
 }
+
 button{
     font-size: 1.5rem;
     border: none;
@@ -61,5 +86,64 @@ button{
     height: 70%;
     padding: 2% 5%;
     text-align: center;
+
+}
+
+@media screen and (max-width: 800px){
+    main{
+        flex-direction: column;
+    }
+    .left-data-container > img, .cloud-percent, .weather-desc{
+        display: none;
+    }
+    form{
+        width: 100%;
+    }
+    .left-container{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    h1{
+        font-size: 4rem;
+    }
+    .left-data-container{
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        font-size: 0.8rem;
+
+    }
+
+    .zone-container{
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-around;
+    }
+    .right-container{
+        width: 100%;
+    }
+    .grid-container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .hourly-container{
+        height: auto;
+    }
+}
+@media screen and (max-width: 500px){
+    .right-container{
+       height: auto;
+    }
+}
+@media screen and (max-width: 1250px){
+    h1{
+        font-size: 4rem;
+    }
+    .zone-container > p{
+        font-size: 1rem;
+    }
+    .left-data-container > p{
+        font-size: 1rem;
+    }
 
 }

@@ -1,5 +1,4 @@
 .grid-container{
-    /* background-color: bisque; */
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
@@ -37,4 +36,17 @@
 }
 i{
     color: #1746A2;
+}
+@media screen and (max-width: 1050px){
+    .grid-container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .temp, .humidity, .clouds, .visibility, .wind,.sun, .minmax{
+        font-size: 2rem;
+    }
+}
+@media screen and (max-width: 500px){
+    .temp, .humidity, .clouds, .visibility, .wind,.sun, .minmax{
+        font-size: 1rem;
+    }
 }
