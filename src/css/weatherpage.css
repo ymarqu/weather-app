@@ -24,7 +24,7 @@ main{
 }
 input{
     box-sizing: border-box;
-    width: 300px;
+    width: 250px;
     height: 50px;
     margin-right: 10px;
     border-radius: 10px;
@@ -36,7 +36,7 @@ input::placeholder{
     font-size: 1.2rem;
 }
 h1{
-    font-size: 5rem;
+    font-size: 6.5rem;
     margin: 0;
 }
 .zone-container{
@@ -53,11 +53,13 @@ button{
     background-color: transparent;
 
 }
-.week-container{
-    padding: 1% 4%;
+.hourly-container{
+    padding: 0 4%;
     height: 30%;
 }
 .daily-container{
     height: 70%;
     padding: 2% 5%;
+    text-align: center;
+
 }

@@ -2,7 +2,7 @@ export default function(data){
     let currentDate = new Date(data.dt * 1000)
     let date = currentDate.toLocaleDateString('en-us', {year:"numeric", month:"long", day:"numeric"});
     let time = `${currentDate.getHours()}:${currentDate.getMinutes()}`
-    return `<img src='https://openweathermap.org/img/wn/${data.weather[0].icon}.png' width='300' height='250'>
+    return `<img src='https://openweathermap.org/img/wn/${data.weather[0].icon}.png' width='200' height='200'>
     <h1>${Math.floor(data.main.temp)}°</h1>
     <div class="zone-container">
     <p class="date">${date}, </p>

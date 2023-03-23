@@ -1,0 +1,23 @@
+.hour{
+    height: 85%;
+    width: 100%;
+    margin: auto;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+.single-hour{
+    background-color: #fff;
+    height: 90%;
+    border-radius: 10px;
+    width: 22%;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    text-align: center;
+
+}
+h3{
+    text-align: center;
+}
+.hour-temp{
+ margin-top: 0;
+}

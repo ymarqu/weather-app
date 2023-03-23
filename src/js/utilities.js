@@ -9,7 +9,6 @@ async function getCoordinates(cityName){
 }
 
 
-
 export{
   getCoordinates
 }

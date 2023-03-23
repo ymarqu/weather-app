@@ -1,10 +1,10 @@
 // import './css/weatherpage.css'
 import '../css/weatherpage.css';
 import getWeather from './weather_data.js';
-import getWeekly from './weekly_data.js';
+import getHourly from './hourly_data.js';
 import highlightsGrid from './statusDisplay.js'
 import leftDisplay from './leftDisplay.js';
-import week from './weeklyDisplay.js';
+import hourly from './hourlyDisplay.js';
 export default function(){
     let weatherData;
     let mainContainer = document.createElement('main');
@@ -14,7 +14,7 @@ export default function(){
     leftContainer.classList.add('left-container');
     mainContainer.appendChild(leftContainer);
 
-    //CREATE RIGHT SIDE OF PAGE TO DISPLAY WEEKLY AND DAILY STATUS
+    //CREATE RIGHT SIDE OF PAGE TO DISPLAY HOURLY AND DAILY STATUS
     let rightContainer = document.createElement('section');
     rightContainer.classList.add('right-container');
     mainContainer.appendChild(rightContainer);
@@ -35,13 +35,13 @@ export default function(){
     leftContainer.appendChild(mainWeatherContainer);
 
 
-    // CREATE WEEK DATA CONTAINER
-    let weekContainer = document.createElement('div');
-    let weekLabel = document.createElement('h3');
-    weekLabel.textContent = "Week";
-    weekContainer.classList.add('week-container');
-    weekContainer.appendChild(weekLabel);
-    rightContainer.appendChild(weekContainer);
+    // CREATE HOURLY DATA CONTAINER
+    let hourlyContainer = document.createElement('div');
+    let hourlyLabel = document.createElement('h3');
+    hourlyLabel.textContent = "Hourly";
+    hourlyContainer.classList.add('hourly-container');
+    hourlyContainer.appendChild(hourlyLabel);
+    rightContainer.appendChild(hourlyContainer);
 
 
     //CREATE DAILY WEATHER STATS CONTAINER
@@ -63,10 +63,10 @@ form.addEventListener('submit', async(e) => {
 })
 async function getData(){
 weatherData = await getWeather();
-let weekly = await getWeekly();
+let hour = await getHourly();
 mainWeatherContainer.innerHTML = leftDisplay(weatherData);
 dailyStats.appendChild(highlightsGrid(weatherData));
-weekContainer.appendChild(week());
+hourlyContainer.appendChild(hourly());
 }
 
 getData();
