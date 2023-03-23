@@ -17,7 +17,7 @@
     font-size: 1rem;
     color: grey;
 }
-.temp{
+.temp, .humidity, .clouds, .visibility{
     text-align: center;
     font-size: 3rem;
 }
@@ -26,8 +26,14 @@
     font-size: 2.5rem;
 
 }
-.sun{
+.sun, .minmax{
     font-size: 2.5rem;
+}
+.minmax{
+    text-align: center;
+}
+.sunset, .sunrise, .min, .max{
+    margin: 0;
 }
 i{
     color: #C1AEFC;

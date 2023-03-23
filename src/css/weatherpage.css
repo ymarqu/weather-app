@@ -9,7 +9,7 @@ main{
 }
 .right-container{
     background-color: #EEEEEE;
-    width: 70%;
+    width: 75%;
     display: flex;
     flex-direction: column;
 
@@ -18,7 +18,7 @@ main{
     box-sizing: border-box;
     align-items: center;
     text-align: center;
-    width: 30%;
+    width: 25%;
     padding: 2%;
 
 }
@@ -54,11 +54,10 @@ button{
 
 }
 .week-container{
-    /* background-color: brown; */
+    padding: 1% 4%;
     height: 30%;
 }
 .daily-container{
-    /* background-color:tomato; */
     height: 70%;
     padding: 2% 5%;
 }
