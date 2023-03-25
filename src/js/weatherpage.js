@@ -21,13 +21,16 @@ export default function(){
 
     // CREATE FORM
     let form = document.createElement('form');
-    form.innerHTML = '<input type="text" name="city" id="city" placeholder="Search for places"/>';
+    form.innerHTML = '<input type="text" name="city" id="city" placeholder="Search for places"/ required>';
 
     let button = document.createElement('button');
     button.innerHTML = "<i class='fa-solid fa-magnifying-glass'></i>";
 
     form.appendChild(button);
     leftContainer.appendChild(form);
+    let errorMsg = document.createElement('p');
+    errorMsg.classList.add('err-msg');
+    leftContainer.appendChild(errorMsg);
 
     // CREATE MAIN WEATHER DISPLAY
     let mainWeatherContainer = document.createElement('div');
@@ -45,30 +48,40 @@ export default function(){
 
 
     //CREATE DAILY WEATHER STATS CONTAINER
-    let dailyStatsTitle = document.createElement('h3');
-    dailyStatsTitle.textContent = "Today's Hightlights"
+    let higlightsTitle = document.createElement('h3');
+    higlightsTitle.textContent = "Today's Hightlights"
     let dailyStats = document.createElement('div');
     dailyStats.classList.add('daily-container');
-    dailyStats.appendChild(dailyStatsTitle);
+    dailyStats.appendChild(higlightsTitle);
     rightContainer.appendChild(dailyStats)
 
+document.addEventListener("DOMContentLoaded", async function(){
+
+    weatherData = await getWeather('San+Diego');
+    mainWeatherContainer.innerHTML = leftDisplay(weatherData);
+    dailyStats.appendChild(highlightsGrid(weatherData));
+    hourlyContainer.appendChild(hourly());
+})
 
 form.addEventListener('submit', async(e) => {
     e.preventDefault();
     console.log(city.value);
     console.log('submit');
     let cityName = city.value;
-    let formattedCity = cityName.replace(/ /g, '+');s
-
+    let formattedCity = cityName.replace(/ /g, '+');
+    try{
+        weatherData = await getWeather(formattedCity);
+        errorMsg.innerHTML = '';
+        dailyStats.removeChild(document.querySelector('.grid-container'));
+        hourlyContainer.removeChild(document.querySelector('.hour'));
+        mainWeatherContainer.innerHTML = leftDisplay(weatherData);
+        dailyStats.appendChild(highlightsGrid(weatherData));
+        hourlyContainer.appendChild(hourly());
+    }catch(e){
+        errorMsg.innerHTML = e
+    }
 })
-async function getData(){
-weatherData = await getWeather();
-mainWeatherContainer.innerHTML = leftDisplay(weatherData);
-dailyStats.appendChild(highlightsGrid(weatherData));
-hourlyContainer.appendChild(hourly());
-}
 
-getData();
 
     return mainContainer;
 }

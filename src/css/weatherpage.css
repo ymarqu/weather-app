@@ -25,8 +25,14 @@ main{
     height: auto;
 
 }
+.err-msg{
+    padding: 0 10px;
+    font-size: 0.7rem;
+    color: red;
+    height: 40px;
+}
 .left-data-container{
-    padding: 5%;
+    padding: 0 5% 5%;
 }
 .form{
     width: 100%;
