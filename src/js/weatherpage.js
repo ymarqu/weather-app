@@ -1,8 +1,6 @@
-
 import '../css/weatherpage.css';
 import getWeather from './weather_data.js';
-import getHourly from './hourly_data.js';
-import highlightsGrid from './statusDisplay.js'
+import highlightsGrid from './statusDisplay.js';
 import leftDisplay from './leftDisplay.js';
 import hourly from './hourlyDisplay.js';
 export default function(){
@@ -55,33 +53,31 @@ export default function(){
     dailyStats.appendChild(higlightsTitle);
     rightContainer.appendChild(dailyStats)
 
+//When page first loads display current weather in San Diego, CA
+//by calling getWeather function and appending to respective elements
 document.addEventListener("DOMContentLoaded", async function(){
-
     weatherData = await getWeather('San+Diego');
     mainWeatherContainer.innerHTML = leftDisplay(weatherData);
     dailyStats.appendChild(highlightsGrid(weatherData));
     hourlyContainer.appendChild(hourly());
 })
-
+//When user submits new city name fetch data and display. If there is error
+// Error message wil display
 form.addEventListener('submit', async(e) => {
     e.preventDefault();
-    console.log(city.value);
-    console.log('submit');
     let cityName = city.value;
     let formattedCity = cityName.replace(/ /g, '+');
     try{
         weatherData = await getWeather(formattedCity);
         errorMsg.innerHTML = '';
-        dailyStats.removeChild(document.querySelector('.grid-container'));
-        hourlyContainer.removeChild(document.querySelector('.hour'));
+        dailyStats.removeChild(document.querySelector('.grid-container')); //Refresh new data
+        hourlyContainer.removeChild(document.querySelector('.hour')); //Refresh new data
         mainWeatherContainer.innerHTML = leftDisplay(weatherData);
         dailyStats.appendChild(highlightsGrid(weatherData));
         hourlyContainer.appendChild(hourly());
     }catch(e){
         errorMsg.innerHTML = e
     }
-})
-
-
+});
     return mainContainer;
 }

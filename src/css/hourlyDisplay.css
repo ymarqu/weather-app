@@ -7,15 +7,12 @@
     grid-template-columns: repeat(4, 1fr);
     column-gap: 15px;
     grid-template-rows: 1;
-    /* justify-content: space-around; */
 }
 .single-hour{
     align-self: stretch;
-    /* place-self: ; */
     background-color: #fff;
     height: 90%;
     border-radius: 10px;
-    /* width: 22%; */
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     text-align: center;
 
@@ -29,7 +26,6 @@ h3{
 @media screen and (max-width: 800px){
     .hour{
         grid-template-columns: repeat(2, 1fr);
-        /* grid-template-rows: repeat(2, 1fr); */
     }
 }
 @media screen and (max-width: 500px){
