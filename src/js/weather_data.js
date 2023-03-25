@@ -13,7 +13,7 @@ async function getWeather(cityName){
     {mode: 'cors'});
     weatherData = await response.json();
     return weatherData;
-    }catch(e){throw new Error("oops... This location is no where to be found. :( Please try again! ¯\\_(ツ)_/¯")}
+    }catch(e){throw new Error("oops... This location is no where to be found. Please try again! ¯\\_(ツ)_/¯")}
 
 
 }
