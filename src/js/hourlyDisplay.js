@@ -8,7 +8,6 @@ export default function(){
 
     (async () => {
         response = await getData();
-        console.log(response)
         for(let i = 0; i < 4; i++){
             let singlehour = document.createElement('div');
             let d = new Date(response[i].dt * 1000);
@@ -23,28 +22,10 @@ export default function(){
             temp.innerHTML = `${Math.floor(response[i].main.temp)}°`
             temp.classList.add('hour-temp');
             singlehour.appendChild(temp);
-
             singlehour.classList.add('single-hour');
             hourlyContainer.appendChild(singlehour);
         }
     })()
-    console.log(`this is the data${response}`)
-    console.log(res);
-    // async function callFunction(){
-    //     let response = await getData()
-    //     return response;
-    // }
-    // let data = callFunction();
-    // console.log(data)
-    // getData().then(x => {
-    //     response = x;
-    // }).catch(e => {console.log(e)})
-    // console.log(response);
-    // getData().then(response => response.json()).then(res => console.log(res));
-    // console.log(data);
-
-
-
     return hourlyContainer;
 
 }
